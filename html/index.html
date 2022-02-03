@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        let ws = new WebSocket("wss://websocket-server-js.codrman.repl.co");
+        ws.onopen = e => {
+            document.write("<p>Connected.</p>");
+            ws.send("Hello");
+        }
+
+
+
+        ws.onmessage = e =>
+            document.write("<p>Received: <i>" + e.data + "</i></p>");
+        ws.onclose = e => 
+            document.write("<p>Disconnected.</p>");
+        ws.onerror = e =>
+            document.write("<p>Error: " + e + "</p>");
+  </script>
+  <p>Connecting...</p>
+</html>
